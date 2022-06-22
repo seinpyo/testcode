@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c3.js</title>
+    <!--c3.js-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.css"/>
+    <style type="text/css">
+        .c3-region.gradeF { fill : red }
+        .c3-region.gradeD { fill : orange }
+        .c3-region.gradeC { fill : green }
+        .c3-region.gradeB { fill : blue}
+        .c3-region.gradeA { fill : purple }
+        .c3-grid line { stroke-dasharray: 0.6; }
+    </style>
+</head>
+    
+    <div id="showChart">
+    </div>
+    <!-- javascript -->
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.js"></script>
+    <script type="text/javascript">
+    var chart = c3.generate({
+        bindto : '#showChart',
+        data : {
+            json : {
+                수학 : [56,92,100,77],
+                영어 : [42,79,100,92],
+                국어 : [77,100,98,68]
+            },
+            type : 'bar',
+            colors : {
+                '수학' : 'skyblue',
+                '영어' : 'tomato',
+                '국어' : 'yellowgreen'
+            }
+        },
+        bar : {
+            width: { ratio : 0.3}
+        },
+        axis : {
+            x : { 
+                label : '이름',
+                type: 'category',
+                categories: ['홍길동', '김길서', '이길남', '송길북']
+            },
+            y : { 
+                label : '점수' ,
+                max : 95,
+                
+            }
+        },
+        grid:{
+            lines :{
+                front: false
+            },
+            y : { 
+                lines : [
+                    {value:30, text: 'grade D'},
+                    {value:50, text: 'grade C'},
+                    {value:70, text: 'grade B'},
+                    {value:90, text: 'grade A'}
+                ], 
+            }
+        }, 
+        regions : [
+            {axis: 'y', start:'0', end:'30', class: 'gradeF'},
+            {axis: 'y', start:'30', end:'50', class: 'gradeD'},
+            {axis: 'y', start:'50', end:'70', class: 'gradeC'},
+            {axis: 'y', start:'70', end:'90', class: 'gradeB'},
+            {axis: 'y', start:'90', class: 'gradeA'}
+        ]
+    })
+    </script>
+</body>
+</html>

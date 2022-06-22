@@ -1,0 +1,29 @@
+package testProject;
+
+import java.math.BigDecimal;
+
+public class main {
+
+	public static void main(String[] args) {
+ 
+		double a = 4.2;
+		double b = 2.1;
+		double doublePlusAnswer = a+b; //기대값 : 6.3
+		double doubleSubAnswer = a-b; //기대값 : 2.1
+		double doubleMulty = a*b; //기대값 : 8.82
+		double doubleDivide = a/b; //기대값 : 2
+		
+		System.out.println("double +연산 : 4.2+2.1=" + doublePlusAnswer);
+		System.out.println("double -연산 : 4.2-2.1=" + doubleSubAnswer);
+		System.out.println("double *연산 : 4.2*2.1=" + doubleMulty);
+		System.out.println("double /연산 : 4.2/2.1=" + doubleDivide);
+		
+		
+		BigDecimal bigA = new BigDecimal("3.0");
+		BigDecimal bigB = new BigDecimal("2.1");
+		BigDecimal bigAnswer = bigA.subtract(bigB);
+		System.out.println("BigDecimal 연산 : 3.0 - 2.1 = " + bigAnswer);
+		
+		
+	}
+}

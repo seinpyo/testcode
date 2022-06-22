@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<form action="/nodemailerTest" method="post" id="emailForm">
+    <input type="text" name="email">
+    <input type="submit" value="메일 전송">
+</form>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript">
+    document.getElementById('emailForm').addEventListener('submit', async (e)=>{
+        e.preventDefault()
+        const email = e.target.email.value
+
+        if(!email) {return alert('이메일을 입력하세요')}
+
+        try{
+            console.log(email)
+            await axios.post('/nodemailerTest', {email})
+            alert('이메일이 전송되었습니다.')
+        } catch(err) { console.error(err); alert('이메일 전송에 실패하였습니다. 다시 시도해주세요.') }
+
+        
+    })
+</script>
+</body>
+</html>
